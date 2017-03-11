@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/purchase-status-form.js" var="js_purchase_status_form" />
 	    <script src="${js_purchase_status_form}"></script>
     
-    	<form name="purchaseStatusForm" method="post" action="PurchaseStatusController?insert" onsubmit="return checkInputs()">
+    	<form name="purchaseStatusForm" method="post" action="PurchaseStatusController/insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="label">Label</label>
 				<input type="text" class="form-control" id="label" name="label" placeholder="Enter your label">

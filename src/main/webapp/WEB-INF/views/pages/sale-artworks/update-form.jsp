@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/sale-artwork-form.js" var="js_sale_artwork_form" />
 	    <script src="${js_sale_artwork_form}"></script>
 	    
-    	<form name="saleArtworkForm" method="post" action="SaleArtworkController?update" onsubmit="return checkInputs()">
+    	<form name="saleArtworkForm" method="post" action="SaleArtworkController/update" onsubmit="return checkInputs()">
     		<div class="form-group">
 				<input type="hidden" class="form-control" id="id" name="id" value="${saleArtwork.id}">
 		    </div>

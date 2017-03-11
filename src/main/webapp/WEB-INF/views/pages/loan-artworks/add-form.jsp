@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/loan-artwork-form.js" var="js_loan_artwork_form" />
 	    <script src="${js_loan_artwork_form}"></script>
 	    
-    	<form name="loanArtworkForm" method="post" action="LoanArtworkController?insert" onsubmit="return checkInputs()">
+    	<form name="loanArtworkForm" method="post" action="LoanArtworkController/insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="title">Title</label>
 				<input type="text" class="form-control" id="title" name="title" placeholder="Enter your title">

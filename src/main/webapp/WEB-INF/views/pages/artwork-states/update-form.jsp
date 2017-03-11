@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/artwork-state-form.js" var="js_artwork_state_form" />
 	    <script src="${js_artwork_state_form}"></script>
 	    
-    	<form name="artworkStateForm" method="post" action="ArtworkStateController?update" onsubmit="return checkInputs()">
+    	<form name="artworkStateForm" method="post" action="ArtworkStateController/update" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<input type="hidden" class="form-control" id="id" name="id" value="${artworkState.id}">
 		    </div>

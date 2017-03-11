@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/member-form.js" var="js_member_form" />
 	    <script src="${js_member_form}"></script>
     
-    	<form name="memberForm" method="post" action="MemberController?insert" onsubmit="return checkInputs()">
+    	<form name="memberForm" method="post" action="MemberController/insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="lastname">Last name</label>
 				<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name">
