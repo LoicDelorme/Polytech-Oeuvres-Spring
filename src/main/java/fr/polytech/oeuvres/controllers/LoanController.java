@@ -68,6 +68,7 @@ public class LoanController {
 		loanPK.setDate(LocalDate.parse(request.getParameter("loanDate")));
 
 		request.setAttribute("loan", this.loanDaoServices.get(loanPK));
+
 		return new ModelAndView("pages/loans/overview");
 	}
 
@@ -85,6 +86,7 @@ public class LoanController {
 	@RequestMapping(value = "/LoanController/list", method = RequestMethod.POST)
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("loans", this.loanDaoServices.getAll());
+
 		return new ModelAndView("pages/loans/list");
 	}
 
@@ -103,6 +105,7 @@ public class LoanController {
 	public ModelAndView addForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("members", this.memberDaoServices.getAll());
 		request.setAttribute("loanArtworks", this.loanArtworkDaoServices.getAll());
+
 		return new ModelAndView("pages/loans/add-form");
 	}
 
@@ -125,6 +128,7 @@ public class LoanController {
 		loanPK.setDate(LocalDate.parse(request.getParameter("loanDate")));
 
 		request.setAttribute("loan", this.loanDaoServices.get(loanPK));
+
 		return new ModelAndView("pages/loans/update-form");
 	}
 
@@ -146,9 +150,11 @@ public class LoanController {
 		loan.setLoanArtwork(this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("loanArtworkId"))));
 		loan.setDate(LocalDate.parse(request.getParameter("loanDate")));
 		loan.setDuration(Integer.parseInt(request.getParameter("duration")));
+
 		this.loanDaoServices.insert(loan);
 
 		request.setAttribute("message", "The loan was successfully added!");
+
 		return new ModelAndView("index");
 	}
 
@@ -172,9 +178,11 @@ public class LoanController {
 
 		final Loan loan = this.loanDaoServices.get(loanPK);
 		loan.setDuration(Integer.parseInt(request.getParameter("duration")));
+
 		this.loanDaoServices.update(loan);
 
 		request.setAttribute("message", "The loan was successfully updated!");
+
 		return new ModelAndView("index");
 	}
 
@@ -199,6 +207,7 @@ public class LoanController {
 		this.loanDaoServices.delete(this.loanDaoServices.get(loanPK));
 
 		request.setAttribute("message", "The loan was successfully deleted!");
+
 		return new ModelAndView("index");
 	}
 }
