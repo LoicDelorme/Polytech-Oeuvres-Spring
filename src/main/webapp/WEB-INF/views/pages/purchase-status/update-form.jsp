@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/purchase-status-form.js" var="js_purchase_status_form" />
 	    <script src="${js_purchase_status_form}"></script>
 	    
-    	<form name="purchaseStatusForm" method="post" action="PurchaseStatusController/update" onsubmit="return checkInputs()">
+    	<form name="purchaseStatusForm" method="post" action="/oeuvres/PurchaseStatusController/update" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<input type="hidden" class="form-control" id="id" name="id" value="${purchaseStatus.id}">
 		    </div>

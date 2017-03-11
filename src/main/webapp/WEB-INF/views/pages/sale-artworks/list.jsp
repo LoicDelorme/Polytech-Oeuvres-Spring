@@ -28,11 +28,11 @@
 			<tbody>
 				<core:forEach items="${saleArtworks}" var="saleArtwork">
 					<tr>
-						<td><a href="SaleArtworkController/overview&id=${saleArtwork.id}">${saleArtwork.id}</a></td>
+						<td><a href="/oeuvres/SaleArtworkController/overview&id=${saleArtwork.id}">${saleArtwork.id}</a></td>
 						<td>${saleArtwork.title}</td>
 						<td>
-							<a class="btn btn-warning" href="SaleArtworkController/updateForm&id=${saleArtwork.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-danger" href="SaleArtworkController/delete&id=${saleArtwork.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+							<a class="btn btn-warning" href="/oeuvres/SaleArtworkController/update-form&id=${saleArtwork.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="/oeuvres/SaleArtworkController/delete&id=${saleArtwork.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
 						</td>
 					</tr>
 				</core:forEach>

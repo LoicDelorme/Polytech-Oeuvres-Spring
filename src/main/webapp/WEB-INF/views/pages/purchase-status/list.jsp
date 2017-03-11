@@ -28,11 +28,11 @@
 			<tbody>
 				<core:forEach items="${purchaseStatus}" var="purchaseStatus_">
 					<tr>
-						<td><a href="PurchaseStatusController/overview&id=${purchaseStatus_.id}">${purchaseStatus_.id}</a></td>
+						<td><a href="/oeuvres/PurchaseStatusController/overview&id=${purchaseStatus_.id}">${purchaseStatus_.id}</a></td>
 						<td>${purchaseStatus_.label}</td>
 						<td>
-							<a class="btn btn-warning" href="PurchaseStatusController/updateForm&id=${purchaseStatus_.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-danger" href="PurchaseStatusController/delete&id=${purchaseStatus_.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+							<a class="btn btn-warning" href="/oeuvres/PurchaseStatusController/update-form&id=${purchaseStatus_.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="/oeuvres/PurchaseStatusController/delete&id=${purchaseStatus_.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
 						</td>
 					</tr>
 				</core:forEach>

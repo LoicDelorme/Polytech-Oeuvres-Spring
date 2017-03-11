@@ -28,11 +28,11 @@
 			<tbody>
 				<core:forEach items="${loanArtworks}" var="loanArtwork">
 					<tr>
-						<td><a href="LoanArtworkController/overview&id=${loanArtwork.id}">${loanArtwork.id}</a></td>
+						<td><a href="/oeuvres/LoanArtworkController/overview&id=${loanArtwork.id}">${loanArtwork.id}</a></td>
 						<td>${loanArtwork.title}</td>
 						<td>
-							<a class="btn btn-warning" href="LoanArtworkController/updateForm&id=${loanArtwork.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-danger" href="LoanArtworkController/delete&id=${loanArtwork.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+							<a class="btn btn-warning" href="/oeuvres/LoanArtworkController/update-form&id=${loanArtwork.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="/oeuvres/LoanArtworkController/delete&id=${loanArtwork.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
 						</td>
 					</tr>
 				</core:forEach>

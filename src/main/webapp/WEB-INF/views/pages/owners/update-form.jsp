@@ -20,8 +20,8 @@
 	    <core:url value="/resources/js/owner-form.js" var="js_owner_form" />
 	    <script src="${js_owner_form}"></script>
 	    
-    	<form name="ownerForm" method="post" action="OwnerController/update" onsubmit="return checkInputs()">
-			<div class="form-group">
+    	<form name="ownerForm" method="post" action="/oeuvres/OwnerController/update" onsubmit="return checkInputs()">
+			<div class="form-group">w
 				<input type="hidden" class="form-control" id="id" name="id" value="${owner.id}">
 		    </div>
 			<div class="form-group">

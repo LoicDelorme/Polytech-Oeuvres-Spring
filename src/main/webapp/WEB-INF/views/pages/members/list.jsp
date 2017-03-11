@@ -29,12 +29,12 @@
 			<tbody>
 				<core:forEach items="${members}" var="member">
 					<tr>
-						<td><a href="MemberController/overview&id=${member.id}">${member.id}</a></td>
+						<td><a href="/oeuvres/MemberController/overview&id=${member.id}">${member.id}</a></td>
 						<td>${member.lastname}</td>
 						<td>${member.firstname}</td>
 						<td>
-							<a class="btn btn-warning" href="MemberController/updateForm&id=${member.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-danger" href="MemberController/delete&id=${member.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+							<a class="btn btn-warning" href="/oeuvres/MemberController/update-form&id=${member.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="/oeuvres/MemberController/delete&id=${member.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
 						</td>
 					</tr>
 				</core:forEach>

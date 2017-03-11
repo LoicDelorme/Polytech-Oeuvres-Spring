@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/sale-artwork-form.js" var="js_sale_artwork_form" />
 	    <script src="${js_sale_artwork_form}"></script>
 	    
-    	<form name="saleArtworkForm" method="post" action="SaleArtworkController/insert" onsubmit="return checkInputs()">
+    	<form name="saleArtworkForm" method="post" action="/oeuvres/SaleArtworkController/insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="title">Title</label>
 				<input type="text" class="form-control" id="title" name="title" placeholder="Enter your title">

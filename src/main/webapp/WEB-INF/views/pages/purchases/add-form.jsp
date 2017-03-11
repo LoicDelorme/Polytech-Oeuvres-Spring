@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/purchase-form.js" var="js_purchase_form" />
 	    <script src="${js_purchase_form}"></script>
 	    
-    	<form name="purchaseForm" method="post" action="PurchaseController/insert" onsubmit="return checkInputs()">
+    	<form name="purchaseForm" method="post" action="/oeuvres/PurchaseController/insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="ownerId">Owner</label>
 				<select class="form-control" id="ownerId" name="ownerId">

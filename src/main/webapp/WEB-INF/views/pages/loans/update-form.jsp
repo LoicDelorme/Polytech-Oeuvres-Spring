@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/loan-form.js" var="js_loan_form" />
 	    <script src="${js_loan_form}"></script>
 	    
-    	<form name="loanForm" method="post" action="LoanController/update" onsubmit="return checkInputs()">
+    	<form name="loanForm" method="post" action="/oeuvres/LoanController/update" onsubmit="return checkInputs()">
     		<div class="form-group">
 				<label for="memberId">Member</label>
 				<input type="hidden" class="form-control" id="memberId" name="memberId" value="${loan.member.id}">

@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/member-form.js" var="js_member_form" />
 	    <script src="${js_member_form}"></script>
 	    
-    	<form name="memberForm" method="post" action="MemberController/update" onsubmit="return checkInputs()">
+    	<form name="memberForm" method="post" action="/oeuvres/MemberController/update" onsubmit="return checkInputs()">
     		<div class="form-group">
 				<input type="hidden" class="form-control" id="id" name="id" value="${member.id}">
 		    </div>

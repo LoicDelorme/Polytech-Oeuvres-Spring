@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/owner-form.js" var="js_owner_form" />
 	    <script src="${js_owner_form}"></script>
     
-    	<form name="ownerForm" method="post" action="OwnerController/insert" onsubmit="return checkInputs()">
+    	<form name="ownerForm" method="post" action="/oeuvres/OwnerController/insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="lastname">Last name</label>
 				<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name">

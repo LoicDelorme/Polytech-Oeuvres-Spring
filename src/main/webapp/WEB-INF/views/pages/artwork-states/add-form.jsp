@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/artwork-state-form.js" var="js_artwork_state_form" />
 	    <script src="${js_artwork_state_form}"></script>
     
-    	<form name="artworkStateForm" method="post" action="ArtworkStateController/insert" onsubmit="return checkInputs()">
+    	<form name="artworkStateForm" method="post" action="/oeuvres/ArtworkStateController/insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="label">Label</label>
 				<input type="text" class="form-control" id="label" name="label" placeholder="Enter your label">

@@ -20,7 +20,7 @@
 	    <core:url value="/resources/js/loan-artwork-form.js" var="js_loan_artwork_form" />
 	    <script src="${js_loan_artwork_form}"></script>
 	    
-    	<form name="loanArtworkForm" method="post" action="LoanArtworkController/update" onsubmit="return checkInputs()">
+    	<form name="loanArtworkForm" method="post" action="/oeuvres/LoanArtworkController/update" onsubmit="return checkInputs()">
     		<div class="form-group">
 				<input type="hidden" class="form-control" id="id" name="id" value="${loanArtwork.id}">
 		    </div>
