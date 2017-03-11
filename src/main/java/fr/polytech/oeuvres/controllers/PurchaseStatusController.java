@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.polytech.oeuvres.entities.PurchaseStatus;
@@ -18,6 +19,7 @@ import fr.polytech.oeuvres.services.PurchaseStatusDaoServices;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("/PurchaseStatusController")
 public class PurchaseStatusController {
 
 	/**
@@ -39,13 +41,15 @@ public class PurchaseStatusController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/PurchaseStatusController/overview", method = RequestMethod.GET)
-	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("purchaseStatus", this.purchaseStatusDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/overview?id=${id}", method = RequestMethod.GET)
+	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		request.setAttribute("purchaseStatus", this.purchaseStatusDaoServices.get(id));
 
 		return new ModelAndView("pages/purchase-status/overview");
 	}
@@ -61,7 +65,7 @@ public class PurchaseStatusController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/PurchaseStatusController/list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("purchaseStatus", this.purchaseStatusDaoServices.getAll());
 
@@ -79,7 +83,7 @@ public class PurchaseStatusController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/PurchaseStatusController/add-form", method = RequestMethod.POST)
+	@RequestMapping(value = "/add-form", method = RequestMethod.GET)
 	public ModelAndView addForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return new ModelAndView("pages/purchase-status/add-form");
 	}
@@ -91,13 +95,15 @@ public class PurchaseStatusController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/PurchaseStatusController/update-form", method = RequestMethod.POST)
-	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("purchaseStatus", this.purchaseStatusDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/update-form?id=${id}", method = RequestMethod.GET)
+	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		request.setAttribute("purchaseStatus", this.purchaseStatusDaoServices.get(id));
 
 		return new ModelAndView("pages/purchase-status/update-form");
 	}
@@ -113,7 +119,7 @@ public class PurchaseStatusController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/PurchaseStatusController/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final PurchaseStatus purchaseStatus = new PurchaseStatus();
 		purchaseStatus.setLabel(request.getParameter("label"));
@@ -136,7 +142,7 @@ public class PurchaseStatusController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/PurchaseStatusController/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final PurchaseStatus purchaseStatus = this.purchaseStatusDaoServices.get(Integer.parseInt(request.getParameter("id")));
 		purchaseStatus.setLabel(request.getParameter("label"));
@@ -155,13 +161,15 @@ public class PurchaseStatusController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/PurchaseStatusController/delete", method = RequestMethod.GET)
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		this.purchaseStatusDaoServices.delete(this.purchaseStatusDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/delete?id=${id}", method = RequestMethod.GET)
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		this.purchaseStatusDaoServices.delete(this.purchaseStatusDaoServices.get(id));
 
 		request.setAttribute("message", "The purchase status was successfully deleted!");
 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.polytech.oeuvres.entities.Loan;
@@ -23,6 +24,7 @@ import fr.polytech.oeuvres.services.MemberDaoServices;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("/LoanController")
 public class LoanController {
 
 	/**
@@ -56,16 +58,22 @@ public class LoanController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param memberId
+	 *            The member id.
+	 * @param loanArtworkId
+	 *            The loan artwork id.
+	 * @param loanDate
+	 *            The loan date.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/overview", method = RequestMethod.GET)
-	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/overview?memberId=${memberId}&loanArtworkId=${loanArtworkId}&loanDate=${loanDate}", method = RequestMethod.GET)
+	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "memberId") int memberId, @RequestParam(value = "loanArtworkId") int loanArtworkId, @RequestParam(value = "loanDate") String loanDate) throws Exception {
 		final LoanPK loanPK = new LoanPK();
-		loanPK.setMember(this.memberDaoServices.get(Integer.parseInt(request.getParameter("memberId"))));
-		loanPK.setLoanArtwork(this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("loanArtworkId"))));
-		loanPK.setDate(LocalDate.parse(request.getParameter("loanDate")));
+		loanPK.setMember(this.memberDaoServices.get(memberId));
+		loanPK.setLoanArtwork(this.loanArtworkDaoServices.get(loanArtworkId));
+		loanPK.setDate(LocalDate.parse(loanDate));
 
 		request.setAttribute("loan", this.loanDaoServices.get(loanPK));
 
@@ -83,7 +91,7 @@ public class LoanController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("loans", this.loanDaoServices.getAll());
 
@@ -101,7 +109,7 @@ public class LoanController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/add-form", method = RequestMethod.POST)
+	@RequestMapping(value = "/add-form", method = RequestMethod.GET)
 	public ModelAndView addForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("members", this.memberDaoServices.getAll());
 		request.setAttribute("loanArtworks", this.loanArtworkDaoServices.getAll());
@@ -116,16 +124,22 @@ public class LoanController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param memberId
+	 *            The member id.
+	 * @param loanArtworkId
+	 *            The loan artwork id.
+	 * @param loanDate
+	 *            The loan date.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/update-form", method = RequestMethod.POST)
-	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/update-form?memberId=${memberId}&loanArtworkId=${loanArtworkId}&loanDate=${loanDate}", method = RequestMethod.GET)
+	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "memberId") int memberId, @RequestParam(value = "loanArtworkId") int loanArtworkId, @RequestParam(value = "loanDate") String loanDate) throws Exception {
 		final LoanPK loanPK = new LoanPK();
-		loanPK.setMember(this.memberDaoServices.get(Integer.parseInt(request.getParameter("memberId"))));
-		loanPK.setLoanArtwork(this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("loanArtworkId"))));
-		loanPK.setDate(LocalDate.parse(request.getParameter("loanDate")));
+		loanPK.setMember(this.memberDaoServices.get(memberId));
+		loanPK.setLoanArtwork(this.loanArtworkDaoServices.get(loanArtworkId));
+		loanPK.setDate(LocalDate.parse(loanDate));
 
 		request.setAttribute("loan", this.loanDaoServices.get(loanPK));
 
@@ -143,7 +157,7 @@ public class LoanController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final Loan loan = new Loan();
 		loan.setMember(this.memberDaoServices.get(Integer.parseInt(request.getParameter("memberId"))));
@@ -169,7 +183,7 @@ public class LoanController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final LoanPK loanPK = new LoanPK();
 		loanPK.setMember(this.memberDaoServices.get(Integer.parseInt(request.getParameter("memberId"))));
@@ -193,16 +207,22 @@ public class LoanController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param memberId
+	 *            The member id.
+	 * @param loanArtworkId
+	 *            The loan artwork id.
+	 * @param loanDate
+	 *            The loan date.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/delete", method = RequestMethod.GET)
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/delete?memberId=${memberId}&loanArtworkId=${loanArtworkId}&loanDate=${loanDate}", method = RequestMethod.GET)
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "memberId") int memberId, @RequestParam(value = "loanArtworkId") int loanArtworkId, @RequestParam(value = "loanDate") String loanDate) throws Exception {
 		final LoanPK loanPK = new LoanPK();
-		loanPK.setMember(this.memberDaoServices.get(Integer.parseInt(request.getParameter("memberId"))));
-		loanPK.setLoanArtwork(this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("loanArtworkId"))));
-		loanPK.setDate(LocalDate.parse(request.getParameter("loanDate")));
+		loanPK.setMember(this.memberDaoServices.get(memberId));
+		loanPK.setLoanArtwork(this.loanArtworkDaoServices.get(loanArtworkId));
+		loanPK.setDate(LocalDate.parse(loanDate));
 
 		this.loanDaoServices.delete(this.loanDaoServices.get(loanPK));
 

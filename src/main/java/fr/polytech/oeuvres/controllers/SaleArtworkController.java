@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.polytech.oeuvres.entities.SaleArtwork;
@@ -19,6 +20,7 @@ import fr.polytech.oeuvres.services.SaleArtworkDaoServices;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("/SaleArtworkController")
 public class SaleArtworkController {
 
 	/**
@@ -46,13 +48,15 @@ public class SaleArtworkController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/SaleArtworkController/overview", method = RequestMethod.GET)
-	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/overview?id=${id}", method = RequestMethod.GET)
+	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(id));
 
 		return new ModelAndView("pages/sale-artworks/overview");
 	}
@@ -68,7 +72,7 @@ public class SaleArtworkController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/SaleArtworkController/list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("saleArtworks", this.saleArtworkDaoServices.getAll());
 
@@ -86,7 +90,7 @@ public class SaleArtworkController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/SaleArtworkController/add-form", method = RequestMethod.POST)
+	@RequestMapping(value = "/add-form", method = RequestMethod.GET)
 	public ModelAndView addForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("artworkStates", this.artworkStateDaoServices.getAll());
 
@@ -100,13 +104,15 @@ public class SaleArtworkController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/SaleArtworkController/update-form", method = RequestMethod.POST)
-	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/update-form?id=${id}", method = RequestMethod.GET)
+	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(id));
 		request.setAttribute("artworkStates", this.artworkStateDaoServices.getAll());
 
 		return new ModelAndView("pages/sale-artworks/update-form");
@@ -123,7 +129,7 @@ public class SaleArtworkController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/SaleArtworkController/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final SaleArtwork saleArtwork = new SaleArtwork();
 		saleArtwork.setTitle(request.getParameter("title"));
@@ -148,7 +154,7 @@ public class SaleArtworkController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/SaleArtworkController/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final SaleArtwork saleArtwork = this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id")));
 		saleArtwork.setTitle(request.getParameter("title"));
@@ -169,13 +175,15 @@ public class SaleArtworkController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/SaleArtworkController/delete", method = RequestMethod.GET)
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		this.saleArtworkDaoServices.delete(this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/delete?id=${id}", method = RequestMethod.GET)
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		this.saleArtworkDaoServices.delete(this.saleArtworkDaoServices.get(id));
 
 		request.setAttribute("message", "The sale artwork was successfully deleted!");
 

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.polytech.oeuvres.entities.Owner;
@@ -18,6 +19,7 @@ import fr.polytech.oeuvres.services.OwnerDaoServices;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("/OwnerController")
 public class OwnerController {
 
 	/**
@@ -39,13 +41,15 @@ public class OwnerController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/OwnerController/overview", method = RequestMethod.GET)
-	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("owner", this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/overview?id=${id}", method = RequestMethod.GET)
+	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		request.setAttribute("owner", this.ownerDaoServices.get(id));
 
 		return new ModelAndView("pages/owners/overview");
 	}
@@ -61,7 +65,7 @@ public class OwnerController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/OwnerController/list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("owners", this.ownerDaoServices.getAll());
 
@@ -79,7 +83,7 @@ public class OwnerController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/OwnerController/add-form", method = RequestMethod.POST)
+	@RequestMapping(value = "/add-form", method = RequestMethod.GET)
 	public ModelAndView addForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return new ModelAndView("pages/owners/add-form");
 	}
@@ -91,13 +95,15 @@ public class OwnerController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/OwnerController/update-form", method = RequestMethod.POST)
-	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("owner", this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/update-form?id=${id}", method = RequestMethod.GET)
+	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		request.setAttribute("owner", this.ownerDaoServices.get(id));
 
 		return new ModelAndView("pages/owners/update-form");
 	}
@@ -113,9 +119,9 @@ public class OwnerController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/OwnerController/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Owner owner = new Owner();
+		final Owner owner = new Owner();
 		owner.setLastname(request.getParameter("lastname"));
 		owner.setFirstname(request.getParameter("firstname"));
 
@@ -137,9 +143,9 @@ public class OwnerController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/OwnerController/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Owner owner = this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id")));
+		final Owner owner = this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id")));
 		owner.setLastname(request.getParameter("lastname"));
 		owner.setFirstname(request.getParameter("firstname"));
 
@@ -157,13 +163,15 @@ public class OwnerController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param id
+	 *            The id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/OwnerController/delete", method = RequestMethod.GET)
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		this.ownerDaoServices.delete(this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+	@RequestMapping(value = "/delete?id=${id}", method = RequestMethod.GET)
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
+		this.ownerDaoServices.delete(this.ownerDaoServices.get(id));
 
 		request.setAttribute("message", "The owner was successfully deleted!");
 

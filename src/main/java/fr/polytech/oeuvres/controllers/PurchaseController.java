@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.polytech.oeuvres.entities.Purchase;
@@ -24,6 +25,7 @@ import fr.polytech.oeuvres.services.SaleArtworkDaoServices;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("/PurchaseController")
 public class PurchaseController {
 
 	/**
@@ -63,16 +65,22 @@ public class PurchaseController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param ownerId
+	 *            The owner id.
+	 * @param saleArtworkId
+	 *            The sale artwork id.
+	 * @param purchaseStatusId
+	 *            The purchase status id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/overview", method = RequestMethod.GET)
-	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/overview?ownerId=${ownerId}&saleArtworkId=${saleArtworkId}&purchaseStatusId=${purchaseStatusId}", method = RequestMethod.GET)
+	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "ownerId") int ownerId, @RequestParam(value = "saleArtworkId") int saleArtworkId, @RequestParam(value = "purchaseStatusId") int purchaseStatusId) throws Exception {
 		final PurchasePK purchasePK = new PurchasePK();
-		purchasePK.setOwner(this.ownerDaoServices.get(Integer.parseInt(request.getParameter("ownerId"))));
-		purchasePK.setSaleArtwork(this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("saleArtworkId"))));
-		purchasePK.setStatus(this.purchaseStatusDaoServices.get(Integer.parseInt(request.getParameter("purchaseStatusId"))));
+		purchasePK.setOwner(this.ownerDaoServices.get(ownerId));
+		purchasePK.setSaleArtwork(this.saleArtworkDaoServices.get(saleArtworkId));
+		purchasePK.setStatus(this.purchaseStatusDaoServices.get(purchaseStatusId));
 
 		request.setAttribute("purchase", this.purchaseDaoServices.get(purchasePK));
 
@@ -90,7 +98,7 @@ public class PurchaseController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("purchases", this.purchaseDaoServices.getAll());
 
@@ -108,7 +116,7 @@ public class PurchaseController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/add-form", method = RequestMethod.POST)
+	@RequestMapping(value = "/add-form", method = RequestMethod.GET)
 	public ModelAndView addForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("owners", this.ownerDaoServices.getAll());
 		request.setAttribute("saleArtworks", this.saleArtworkDaoServices.getAll());
@@ -124,16 +132,22 @@ public class PurchaseController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param ownerId
+	 *            The owner id.
+	 * @param saleArtworkId
+	 *            The sale artwork id.
+	 * @param purchaseStatusId
+	 *            The purchase status id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/update-form", method = RequestMethod.POST)
-	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/update-form?ownerId=${ownerId}&saleArtworkId=${saleArtworkId}&purchaseStatusId=${purchaseStatusId}", method = RequestMethod.GET)
+	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "ownerId") int ownerId, @RequestParam(value = "saleArtworkId") int saleArtworkId, @RequestParam(value = "purchaseStatusId") int purchaseStatusId) throws Exception {
 		final PurchasePK purchasePK = new PurchasePK();
-		purchasePK.setOwner(this.ownerDaoServices.get(Integer.parseInt(request.getParameter("ownerId"))));
-		purchasePK.setSaleArtwork(this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("saleArtworkId"))));
-		purchasePK.setStatus(this.purchaseStatusDaoServices.get(Integer.parseInt(request.getParameter("purchaseStatusId"))));
+		purchasePK.setOwner(this.ownerDaoServices.get(ownerId));
+		purchasePK.setSaleArtwork(this.saleArtworkDaoServices.get(saleArtworkId));
+		purchasePK.setStatus(this.purchaseStatusDaoServices.get(purchaseStatusId));
 
 		request.setAttribute("purchase", this.purchaseDaoServices.get(purchasePK));
 		request.setAttribute("purchaseStatus", this.purchaseStatusDaoServices.getAll());
@@ -152,7 +166,7 @@ public class PurchaseController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final Purchase purchase = new Purchase();
 		purchase.setOwner(this.ownerDaoServices.get(Integer.parseInt(request.getParameter("ownerId"))));
@@ -178,7 +192,7 @@ public class PurchaseController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final PurchasePK purchasePK = new PurchasePK();
 		purchasePK.setOwner(this.ownerDaoServices.get(Integer.parseInt(request.getParameter("ownerId"))));
@@ -206,16 +220,22 @@ public class PurchaseController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param ownerId
+	 *            The owner id.
+	 * @param saleArtworkId
+	 *            The sale artwork id.
+	 * @param purchaseStatusId
+	 *            The purchase status id.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/LoanController/delete", method = RequestMethod.GET)
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/delete?ownerId=${ownerId}&saleArtworkId=${saleArtworkId}&purchaseStatusId=${purchaseStatusId}", method = RequestMethod.GET)
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "ownerId") int ownerId, @RequestParam(value = "saleArtworkId") int saleArtworkId, @RequestParam(value = "purchaseStatusId") int purchaseStatusId) throws Exception {
 		final PurchasePK purchasePK = new PurchasePK();
-		purchasePK.setOwner(this.ownerDaoServices.get(Integer.parseInt(request.getParameter("ownerId"))));
-		purchasePK.setSaleArtwork(this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("saleArtworkId"))));
-		purchasePK.setStatus(this.purchaseStatusDaoServices.get(Integer.parseInt(request.getParameter("purchaseStatusId"))));
+		purchasePK.setOwner(this.ownerDaoServices.get(ownerId));
+		purchasePK.setSaleArtwork(this.saleArtworkDaoServices.get(saleArtworkId));
+		purchasePK.setStatus(this.purchaseStatusDaoServices.get(purchaseStatusId));
 
 		this.purchaseDaoServices.delete(this.purchaseDaoServices.get(purchasePK));
 
