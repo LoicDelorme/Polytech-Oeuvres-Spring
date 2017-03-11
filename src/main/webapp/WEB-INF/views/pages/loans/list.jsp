@@ -30,13 +30,13 @@
 			<tbody>
 				<core:forEach items="${loans}" var="loan">
 					<tr>
-						<td><a href="/oeuvres/LoanController/overview&memberId=${loan.member.id}&loanArtworkId=${loan.loanArtwork.id}&loanDate=${loan.date}">Overview</a></td>
+						<td><a href="/oeuvres/LoanController/overview?memberId=${loan.member.id}&loanArtworkId=${loan.loanArtwork.id}&loanDate=${loan.date}">Overview</a></td>
 						<td>${loan.member.lastname} ${loan.member.firstname}</td>
 						<td>${loan.loanArtwork.title}</td>
 						<td>${loan.date}</td>
 						<td>
-							<a class="btn btn-warning" href="/oeuvres/LoanController/update-form&memberId=${loan.member.id}&loanArtworkId=${loan.loanArtwork.id}&loanDate=${loan.date}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-danger" href="/oeuvres/LoanController/delete&memberId=${loan.member.id}&loanArtworkId=${loan.loanArtwork.id}&loanDate=${loan.date}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+							<a class="btn btn-warning" href="/oeuvres/LoanController/update-form?memberId=${loan.member.id}&loanArtworkId=${loan.loanArtwork.id}&loanDate=${loan.date}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="/oeuvres/LoanController/delete?memberId=${loan.member.id}&loanArtworkId=${loan.loanArtwork.id}&loanDate=${loan.date}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
 						</td>
 					</tr>
 				</core:forEach>

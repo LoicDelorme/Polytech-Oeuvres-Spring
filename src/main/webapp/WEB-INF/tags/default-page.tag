@@ -67,57 +67,57 @@
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-user"></i> Members<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="MemberController/list">List all members</a></li>
-                                <li><a href="MemberController/add-form">Add a new member</a></li>
+                                <li><a href="/oeuvres/MemberController/list">List all members</a></li>
+                                <li><a href="/oeuvres/MemberController/add-form">Add a new member</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-user"></i> Owners<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="OwnerController/list">List all owners</a></li>
-                                <li><a href="OwnerController/add-form">Add a new owner</a></li>
+                                <li><a href="/oeuvres/OwnerController/list">List all owners</a></li>
+                                <li><a href="/oeuvres/OwnerController/add-form">Add a new owner</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-book"></i> Loan Artworks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="LoanArtworkController/list">List all loan artworks</a></li>
-                                <li><a href="LoanArtworkController/add-form">Add a new loan artwork</a></li>
+                                <li><a href="/oeuvres/LoanArtworkController/list">List all loan artworks</a></li>
+                                <li><a href="/oeuvres/LoanArtworkController/add-form">Add a new loan artwork</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-book"></i> Sale Artworks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="SaleArtworkController/list">List all sale artworks</a></li>
-                                <li><a href="SaleArtworkController/add-form">Add a new sale artwork</a></li>
+                                <li><a href="/oeuvres/SaleArtworkController/list">List all sale artworks</a></li>
+                                <li><a href="/oeuvres/SaleArtworkController/add-form">Add a new sale artwork</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-tasks"></i> Artwork States<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="ArtworkStateController/list">List all artwork states</a></li>
-                                <li><a href="ArtworkStateController/add-form">Add a new artwork state</a></li>
+                                <li><a href="/oeuvres/ArtworkStateController/list">List all artwork states</a></li>
+                                <li><a href="/oeuvres/ArtworkStateController/add-form">Add a new artwork state</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-tasks"></i> Purchase Status<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="PurchaseStatusController/list">List all purchase status</a></li>
-                                <li><a href="PurchaseStatusController/add-form">Add a new purchase status</a></li>
+                                <li><a href="/oeuvres/PurchaseStatusController/list">List all purchase status</a></li>
+                                <li><a href="/oeuvres/PurchaseStatusController/add-form">Add a new purchase status</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-tags"></i> Loans<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="LoanController/list">List all loans</a></li>
-                                <li><a href="LoanController/add-form">Add a new loan</a></li>
+                                <li><a href="/oeuvres/LoanController/list">List all loans</a></li>
+                                <li><a href="/oeuvres/LoanController/add-form">Add a new loan</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-tags"></i> Purchases<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="PurchaseController/list">List all purchases</a></li>
-                                <li><a href="PurchaseController/add-form">Add a new purchase</a></li>
+                                <li><a href="/oeuvres/PurchaseController/list">List all purchases</a></li>
+                                <li><a href="/oeuvres/PurchaseController/add-form">Add a new purchase</a></li>
                             </ul>
                         </li>
                     </ul>

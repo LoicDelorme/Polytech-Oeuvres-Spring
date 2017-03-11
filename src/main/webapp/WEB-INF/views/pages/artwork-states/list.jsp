@@ -28,11 +28,11 @@
 			<tbody>
 				<core:forEach items="${artworkStates}" var="artworkState">
 					<tr>
-						<td><a href="/oeuvres/ArtworkStateController/overview&id=${artworkState.id}">${artworkState.id}</a></td>
+						<td><a href="/oeuvres/ArtworkStateController/overview?id=${artworkState.id}">${artworkState.id}</a></td>
 						<td>${artworkState.label}</td>
 						<td>
-							<a class="btn btn-warning" href="/oeuvres/ArtworkStateController/update-form&id=${artworkState.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-danger" href="/oeuvres/ArtworkStateController/delete&id=${artworkState.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+							<a class="btn btn-warning" href="/oeuvres/ArtworkStateController/update-form?id=${artworkState.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="/oeuvres/ArtworkStateController/delete?id=${artworkState.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
 						</td>
 					</tr>
 				</core:forEach>

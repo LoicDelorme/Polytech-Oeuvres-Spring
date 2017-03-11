@@ -21,7 +21,7 @@
 	    <script src="${js_owner_form}"></script>
 	    
     	<form name="ownerForm" method="post" action="/oeuvres/OwnerController/update" onsubmit="return checkInputs()">
-			<div class="form-group">w
+			<div class="form-group">
 				<input type="hidden" class="form-control" id="id" name="id" value="${owner.id}">
 		    </div>
 			<div class="form-group">

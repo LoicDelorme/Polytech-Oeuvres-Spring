@@ -23,20 +23,20 @@
 					<th>Details</th>
 					<th>Owner</th>
 					<th>Sale Artwork</th>
-					<th>Purchase Date</th>
+					<th>Purchase Status</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 				<core:forEach items="${purchases}" var="purchase">
 					<tr>
-						<td><a href="/oeuvres/PurchaseController/overview&ownerId=${purchase.owner.id}&saleArtworkId=${purchase.saleArtwork.id}&purchaseStatusId=${purchase.status.id}">Overview</a></td>
+						<td><a href="/oeuvres/PurchaseController/overview?ownerId=${purchase.owner.id}&saleArtworkId=${purchase.saleArtwork.id}&purchaseStatusId=${purchase.status.id}">Overview</a></td>
 						<td>${purchase.owner.lastname} ${purchase.owner.firstname}</td>
 						<td>${purchase.saleArtwork.title}</td>
 						<td>${purchase.status.label}</td>
 						<td>
-							<a class="btn btn-warning" href="/oeuvres/PurchaseController/update-form&ownerId=${purchase.owner.id}&saleArtworkId=${purchase.saleArtwork.id}&purchaseStatusId=${purchase.status.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-danger" href="/oeuvres/PurchaseController/delete&ownerId=${purchase.owner.id}&saleArtworkId=${purchase.saleArtwork.id}&purchaseStatusId=${purchase.status.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+							<a class="btn btn-warning" href="/oeuvres/PurchaseController/update-form?ownerId=${purchase.owner.id}&saleArtworkId=${purchase.saleArtwork.id}&purchaseStatusId=${purchase.status.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="/oeuvres/PurchaseController/delete?ownerId=${purchase.owner.id}&saleArtworkId=${purchase.saleArtwork.id}&purchaseStatusId=${purchase.status.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
 						</td>
 					</tr>
 				</core:forEach>

@@ -75,7 +75,7 @@ public class PurchaseController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/overview?ownerId=${ownerId}&saleArtworkId=${saleArtworkId}&purchaseStatusId=${purchaseStatusId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/overview", method = RequestMethod.GET)
 	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "ownerId") int ownerId, @RequestParam(value = "saleArtworkId") int saleArtworkId, @RequestParam(value = "purchaseStatusId") int purchaseStatusId) throws Exception {
 		final PurchasePK purchasePK = new PurchasePK();
 		purchasePK.setOwner(this.ownerDaoServices.get(ownerId));
@@ -142,7 +142,7 @@ public class PurchaseController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/update-form?ownerId=${ownerId}&saleArtworkId=${saleArtworkId}&purchaseStatusId=${purchaseStatusId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/update-form", method = RequestMethod.GET)
 	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "ownerId") int ownerId, @RequestParam(value = "saleArtworkId") int saleArtworkId, @RequestParam(value = "purchaseStatusId") int purchaseStatusId) throws Exception {
 		final PurchasePK purchasePK = new PurchasePK();
 		purchasePK.setOwner(this.ownerDaoServices.get(ownerId));
@@ -230,7 +230,7 @@ public class PurchaseController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/delete?ownerId=${ownerId}&saleArtworkId=${saleArtworkId}&purchaseStatusId=${purchaseStatusId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "ownerId") int ownerId, @RequestParam(value = "saleArtworkId") int saleArtworkId, @RequestParam(value = "purchaseStatusId") int purchaseStatusId) throws Exception {
 		final PurchasePK purchasePK = new PurchasePK();
 		purchasePK.setOwner(this.ownerDaoServices.get(ownerId));

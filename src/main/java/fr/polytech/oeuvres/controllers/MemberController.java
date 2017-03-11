@@ -47,7 +47,7 @@ public class MemberController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/overview?id=${id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/overview", method = RequestMethod.GET)
 	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
 		request.setAttribute("member", this.memberDaoServices.get(id));
 
@@ -101,7 +101,7 @@ public class MemberController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/update-form?id=${id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/update-form", method = RequestMethod.GET)
 	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
 		request.setAttribute("member", this.memberDaoServices.get(id));
 
@@ -175,7 +175,7 @@ public class MemberController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/delete?id=${id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
 		this.memberDaoServices.delete(this.memberDaoServices.get(id));
 

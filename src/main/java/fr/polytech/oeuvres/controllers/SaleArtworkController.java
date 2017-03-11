@@ -54,7 +54,7 @@ public class SaleArtworkController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/overview?id=${id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/overview", method = RequestMethod.GET)
 	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
 		request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(id));
 
@@ -110,7 +110,7 @@ public class SaleArtworkController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/update-form?id=${id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/update-form", method = RequestMethod.GET)
 	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
 		request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(id));
 		request.setAttribute("artworkStates", this.artworkStateDaoServices.getAll());
@@ -181,7 +181,7 @@ public class SaleArtworkController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/delete?id=${id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "id") int id) throws Exception {
 		this.saleArtworkDaoServices.delete(this.saleArtworkDaoServices.get(id));
 

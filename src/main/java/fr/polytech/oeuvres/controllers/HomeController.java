@@ -1,5 +1,9 @@
 package fr.polytech.oeuvres.controllers;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -63,12 +67,19 @@ public class HomeController {
 	 *            The request.
 	 * @param response
 	 *            The response.
+	 * @param exception
+	 *            The exception.
 	 * @return The corresponding JSP page.
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
-	public ModelAndView error(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView error(HttpServletRequest request, HttpServletResponse response, Exception exception) throws Exception {
+		final Writer writer = new StringWriter();
+		exception.printStackTrace(new PrintWriter(writer));
+
+		request.setAttribute("message", writer.toString());
+
 		return new ModelAndView("error");
 	}
 }

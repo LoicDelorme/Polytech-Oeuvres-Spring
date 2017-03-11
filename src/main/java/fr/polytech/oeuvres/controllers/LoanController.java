@@ -68,7 +68,7 @@ public class LoanController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/overview?memberId=${memberId}&loanArtworkId=${loanArtworkId}&loanDate=${loanDate}", method = RequestMethod.GET)
+	@RequestMapping(value = "/overview", method = RequestMethod.GET)
 	public ModelAndView overview(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "memberId") int memberId, @RequestParam(value = "loanArtworkId") int loanArtworkId, @RequestParam(value = "loanDate") String loanDate) throws Exception {
 		final LoanPK loanPK = new LoanPK();
 		loanPK.setMember(this.memberDaoServices.get(memberId));
@@ -134,7 +134,7 @@ public class LoanController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/update-form?memberId=${memberId}&loanArtworkId=${loanArtworkId}&loanDate=${loanDate}", method = RequestMethod.GET)
+	@RequestMapping(value = "/update-form", method = RequestMethod.GET)
 	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "memberId") int memberId, @RequestParam(value = "loanArtworkId") int loanArtworkId, @RequestParam(value = "loanDate") String loanDate) throws Exception {
 		final LoanPK loanPK = new LoanPK();
 		loanPK.setMember(this.memberDaoServices.get(memberId));
@@ -217,7 +217,7 @@ public class LoanController {
 	 * @throws Exception
 	 *             If an error occurs.
 	 */
-	@RequestMapping(value = "/delete?memberId=${memberId}&loanArtworkId=${loanArtworkId}&loanDate=${loanDate}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "memberId") int memberId, @RequestParam(value = "loanArtworkId") int loanArtworkId, @RequestParam(value = "loanDate") String loanDate) throws Exception {
 		final LoanPK loanPK = new LoanPK();
 		loanPK.setMember(this.memberDaoServices.get(memberId));
