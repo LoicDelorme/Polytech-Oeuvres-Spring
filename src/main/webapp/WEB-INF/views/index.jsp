@@ -26,50 +26,50 @@
     	
 		<dl>
 			<dt>Members</dt>
-			<dd><a href="MemberController/list">List all members</a></dd>
-			<dd><a href="MemberController/addForm">Add member</a></dd>
+			<dd><a href="/oeuvres/MemberController/list">List all members</a></dd>
+			<dd><a href="/oeuvres/MemberController/add-form">Add member</a></dd>
 		</dl>
 		
 		<dl>
 			<dt>Owners</dt>
-			<dd><a href="OwnerController/list">List all owners</a></dd>
-			<dd><a href="OwnerController/addForm">Add owner</a></dd>
+			<dd><a href="/oeuvres/OwnerController/list">List all owners</a></dd>
+			<dd><a href="/oeuvres/OwnerController/add-form">Add owner</a></dd>
 		</dl>
 		
 		<dl>
 			<dt>Loan Artworks</dt>
-			<dd><a href="LoanArtworkController/list">List all loan artworks</a></dd>
-			<dd><a href="LoanArtworkController/addForm">Add loan artwork</a></dd>
+			<dd><a href="/oeuvres/LoanArtworkController/list">List all loan artworks</a></dd>
+			<dd><a href="/oeuvres/LoanArtworkController/add-form">Add loan artwork</a></dd>
 		</dl>
 		
 		<dl>
 			<dt>Sale Artworks</dt>
-			<dd><a href="SaleArtworkController/list">List all sale artworks</a></dd>
-			<dd><a href="SaleArtworkController/addForm">Add sale artwork</a></dd>
+			<dd><a href="/oeuvres/SaleArtworkController/list">List all sale artworks</a></dd>
+			<dd><a href="/oeuvres/SaleArtworkController/add-form">Add sale artwork</a></dd>
 		</dl>
 		
 		<dl>
 			<dt>Artwork States</dt>
-			<dd><a href="ArtworkStateController/list">List all artwork states</a></dd>
-			<dd><a href="ArtworkStateController/addForm">Add artwork state</a></dd>
+			<dd><a href="/oeuvres/ArtworkStateController/list">List all artwork states</a></dd>
+			<dd><a href="/oeuvres/ArtworkStateController/add-form">Add artwork state</a></dd>
 		</dl>
 		
 		<dl>
 			<dt>Purchase Status</dt>
-			<dd><a href="PurchaseStatusController/list">List all purchase status</a></dd>
-			<dd><a href="PurchaseStatusController/addForm">Add purchase status</a></dd>
+			<dd><a href="/oeuvres/PurchaseStatusController/list">List all purchase status</a></dd>
+			<dd><a href="/oeuvres/PurchaseStatusController/add-form">Add purchase status</a></dd>
 		</dl>
 		
 		<dl>
 			<dt>Loans</dt>
-			<dd><a href="LoanController/list">List all loans</a></dd>
-			<dd><a href="LoanController/addForm">Add a new loan</a></dd>
+			<dd><a href="/oeuvres/LoanController/list">List all loans</a></dd>
+			<dd><a href="/oeuvres/LoanController/add-form">Add a new loan</a></dd>
 		</dl>
 		
 		<dl>
 			<dt>Purchases</dt>
-			<dd><a href="PurchaseController/list">List all purchases</a></dd>
-			<dd><a href="PurchaseController/addForm">Add a new purchase</a></dd>
+			<dd><a href="/oeuvres/PurchaseController/list">List all purchases</a></dd>
+			<dd><a href="/oeuvres/PurchaseController/add-form">Add a new purchase</a></dd>
 		</dl>
     </jsp:attribute>
     
